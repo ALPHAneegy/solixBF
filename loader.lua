@@ -1,89 +1,280 @@
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local whitelistURL = "https://raw.githubusercontent.com/ALPHAneegy/whitelist-szoo-paid/refs/heads/main/README.md"
-local whitelist = {}
-
-local function isPlayerValid()
-    if type(LocalPlayer.Name) ~= "string" then
-        return false
-    end
-    if LocalPlayer.UserId <= 0 then
-        return false
-    end
-    return true
+local j11OiLo=(getfenv and getfenv(1)) or _ENV or _G
+local jiiOoi,IoOLj1iIoOj=string.byte,string.char
+local function ll1ILLjo1(iIo1Illj,LlIjij0lI)
+local jO0i1oi1o0o00=""
+local ljoiLj1=#LlIjij0lI
+for i0Ol0iI=1,#iIo1Illj do jO0i1oi1o0o00=jO0i1oi1o0o00..IoOLj1iIoOj((jiiOoi(iIo1Illj,i0Ol0iI)-jiiOoi(LlIjij0lI,(i0Ol0iI-1)%ljoiLj1+1))%256) end
+return jO0i1oi1o0o00
 end
-
-local function fetchWhitelist()
-    local fetchResult = {
-        pcall(function()
-            return game:HttpGet(whitelistURL)
-        end)
-    }
-
-    if not fetchResult[1] then
-        return false, "WHITELIST_FETCH_FAILED"
-    end
-
-    local whitelistData = fetchResult[2]
-    local loadResult = {
-        pcall(function()
-            return loadstring(whitelistData)()
-        end)
-    }
-
-    if not loadResult[1] or type(loadResult[2]) ~= "table" then
-        return false, "Not whitelisted, create ticket to get acces."
-    end
-
-    whitelist = loadResult[2]
-    return true
+local j0L1jiO1=j11OiLo[ll1ILLjo1("@Z\127\162\214 ","\205\245\019=s\172n")]
+local ji0oiOIiOj1=j11OiLo[ll1ILLjo1("\205\185\241\163\200\172","ZE\127:")][ll1ILLjo1("IL\130","\214\215 \005")]
+local I0i00iO=j11OiLo[ll1ILLjo1("\1911\230\1835","K\208\132")][ll1ILLjo1("\029F\162\0298\168","\186\2154")]
+local ijIlOLool10li=j11OiLo[ll1ILLjo1("\2057\007\156","`\214\1474\228\204\132")][ll1ILLjo1("}\007N\n\209","\023\155\223\155_\167\255")]
+local l0i1joOO00iil=j11OiLo[ll1ILLjo1("\227\166ZU\220\153QR","o7\236\224")]
+local j1O0jO0liiL1OI=j11OiLo[ll1ILLjo1("\187\249\0053\132","V\135\147\196\018")]
+local jl01iiill00o=l0i1joOO00iil("2861")*1+j0L1jiO1("#",0,0,0)*21+jiiOoi("%")+(IoOLj1iIoOj(87,65)=="WA" and 2105 or 76)
+local I0joj11L1O=j11OiLo[ll1ILLjo1("7\189!\227\180","\195\\\191wO")][ll1ILLjo1("\154\018\216)","*\177u\190\130$\005")] or function(...) return {n=j0L1jiO1("#",...),...} end
+local Ll0IOIo0i0jLOi=j11OiLo[ll1ILLjo1("\226\140\199\002\187","n+e\150V\238_")][ll1ILLjo1("\016\014r\252\003m","\155\160\002")] or j11OiLo[ll1ILLjo1("\1975\029\213\181\187","P\199\173tR")]
+local j1i0li1L0oIjo="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+local function IL1I0jlll0LLlL(lliO1oL1ILOLL1)
+local iloLLoOl1Oi={}
+for LoO0iiIIIo=1,64 do iloLLoOl1Oi[jiiOoi(j1i0li1L0oIjo,LoO0iiIIIo)]=LoO0iiIIIo-1 end
+local iOjljoIIOIio,iiLIo1,j1iILLl,IO0ill0={},0,0,0
+for LoO0iiIIIo=1,#lliO1oL1ILOLL1 do
+local IlIlLjLLo=iloLLoOl1Oi[jiiOoi(lliO1oL1ILOLL1,LoO0iiIIIo)]
+if IlIlLjLLo then
+iiLIo1=iiLIo1*64+IlIlLjLLo
+j1iILLl=j1iILLl+6
+if j1iILLl>=8 then j1iILLl=j1iILLl-8 IO0ill0=IO0ill0+1 iOjljoIIOIio[IO0ill0]=IoOLj1iIoOj(ijIlOLool10li(iiLIo1/(2^j1iILLl))%256) iiLIo1=iiLIo1%(2^j1iILLl) end
 end
-
-local fetchSuccess, fetchError = fetchWhitelist()
-if not fetchSuccess then
-    LocalPlayer:Kick(fetchError or "Whitelist fetch failed")
-    return
 end
-
-if not isPlayerValid() then
-    LocalPlayer:Kick("Spoof detected.")
-    return
+return I0i00iO(iOjljoIIOIio)
 end
-
-local function isWhitelisted()
-    local playerName = LocalPlayer.Name
-    if whitelist[playerName] == true then
-        return true
-    end
-    for _, name in ipairs(whitelist) do
-        if name == playerName then
-            return true
-        end
-    end
-    return false
+local jO10jjji="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"
+local function jjoIloj0OLjlI(ILoliI0l0j)
+local LLlOjLIL1IIjI=(1305198570)+jl01iiill00o
+local l0j11i=12
+local lIlo10={}
+for jLiLljOil0I=1,#ILoliI0l0j do
+LLlOjLIL1IIjI=(LLlOjLIL1IIjI*35337+172066189)%4294967296
+local IlllI1O100Oj=jiiOoi(ILoliI0l0j,jLiLljOil0I)
+local lLoOj00lIO=(ijIlOLool10li(LLlOjLIL1IIjI/65536)+l0j11i+(jLiLljOil0I-1)*175)%256
+lIlo10[jLiLljOil0I]=IoOLj1iIoOj((IlllI1O100Oj-lLoOj00lIO)%256)
+l0j11i=(l0j11i*37+IlllI1O100Oj+1)%251
 end
-
-if not isWhitelisted() then
-    LocalPlayer:Kick("Not whitelisted, buy the script.")
-    return
+return I0i00iO(lIlo10)
 end
-
-task.spawn(function()
-    while task.wait(3) do
-        if not isPlayerValid() then
-            LocalPlayer:Kick("Spoof detected (runtime).")
-            break
-        end
-    end
-end)
-
-local VirtualUser = game:GetService("VirtualUser")
-LocalPlayer.Idled:Connect(function()
-    VirtualUser:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
-    task.wait(1)
-    VirtualUser:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
-end)
-
+local jjlIoo=jjoIloj0OLjlI(IL1I0jlll0LLlL(jO10jjji))
+local IlllI1O100Oj=1
+local function jo00IOjloljL()
+local jLiLljOil0I=jiiOoi(jjlIoo,IlllI1O100Oj)
+IlllI1O100Oj=IlllI1O100Oj+1
+return jLiLljOil0I
+end
+local function jjjljIIIj0I()
+local jLiLljOil0I,IOOoIlij=jiiOoi(jjlIoo,IlllI1O100Oj,IlllI1O100Oj+1)
+IlllI1O100Oj=IlllI1O100Oj+2
+return jLiLljOil0I+IOOoIlij*256
+end
+local function jljIljLLj()
+local jLiLljOil0I,IOOoIlij,ILoliI0l0j,lIlo10=jiiOoi(jjlIoo,IlllI1O100Oj,IlllI1O100Oj+3)
+IlllI1O100Oj=IlllI1O100Oj+4
+return jLiLljOil0I+IOOoIlij*256+ILoliI0l0j*65536+lIlo10*16777216
+end
+local function lOIjIO0i0ljiji()
+local jLiLljOil0I=jljIljLLj()
+local IOOoIlij=ji0oiOIiOj1(jjlIoo,IlllI1O100Oj,IlllI1O100Oj+jLiLljOil0I-1)
+IlllI1O100Oj=IlllI1O100Oj+jLiLljOil0I
+return IOOoIlij
+end
+local function lO0jlLjjjIo0l()
+local jLiLljOil0I=jo00IOjloljL()
+local IOOoIlij=lOIjIO0i0ljiji()
+if jLiLljOil0I==0 then return l0i1joOO00iil(IOOoIlij)
+elseif jLiLljOil0I==1 then return IOOoIlij
+elseif jLiLljOil0I==2 then return 1/0
+elseif jLiLljOil0I==3 then return -1/0
+else return 0/0 end
+end
+local function j0Ooj0jIL()
+local lijLL1ijoiI=jo00IOjloljL()
+local jLiLljOil0I=jo00IOjloljL()
+local IOOoIlij=jjjljIIIj0I()
+local I11li1L1l0lI={}
+for ILoliI0l0j=1,IOOoIlij do local jjIl10I0=jjjljIIIj0I() I11li1L1l0lI[ILoliI0l0j]={jjIl10I0,lOIjIO0i0ljiji()} end
+local lIlo10=jljIljLLj()
+local loOio11={}
+for ILoliI0l0j=1,lIlo10 do
+loOio11[ILoliI0l0j]={jjjljIIIj0I(),jjjljIIIj0I(),jljIljLLj(),jljIljLLj()}
+end
+local IlllI1O100Oj=jjjljIIIj0I()
+local lOOl0I={}
+for ILoliI0l0j=1,IlllI1O100Oj do lOOl0I[ILoliI0l0j]=j0Ooj0jIL() end
+local i0jOjo=jjjljIIIj0I()
+local jll1iIoOILo1i={}
+for ILoliI0l0j=1,i0jOjo do jll1iIoOILo1i[ILoliI0l0j]={jo00IOjloljL(),jjjljIIIj0I()} end
+return {lijLL1ijoiI,jLiLljOil0I,loOio11,I11li1L1l0lI,lOOl0I,jll1iIoOILo1i,{}}
+end
+local function L0IlilO10I0(loLj0O1ooo10ij,IIIIO0IOj1iI0,jjIl10I0)
+if IIIIO0IOj1iI0[jjIl10I0]~=nil then return IIIIO0IOj1iI0[jjIl10I0] end
+local lliO1oL1ILOLL1=loLj0O1ooo10ij[jjIl10I0]
+local iloLLoOl1Oi=lliO1oL1ILOLL1[1]
+local LoO0iiIIIo=lliO1oL1ILOLL1[2]
+local iOjljoIIOIio=(59984+iloLLoOl1Oi*251+1)%65536
+local iiLIo1={}
+for j1iILLl=1,#LoO0iiIIIo do
+iOjljoIIOIio=(iOjljoIIOIio*40503+12345)%65536
+iiLIo1[j1iILLl]=IoOLj1iIoOj((jiiOoi(LoO0iiIIIo,j1iILLl)-ijIlOLool10li(iOjljoIIOIio/256)%256-j1iILLl*(59984%256))%256)
+end
+local IO0ill0=I0i00iO(iiLIo1)
+local IlIlLjLLo=jiiOoi(IO0ill0,1)
+local ILIoO0o1OLi0o0=jiiOoi(IO0ill0,2)+jiiOoi(IO0ill0,3)*256+jiiOoi(IO0ill0,4)*65536+jiiOoi(IO0ill0,5)*16777216
+local Lill1OOILOI0L=ji0oiOIiOj1(IO0ill0,6,5+ILIoO0o1OLi0o0)
+local ijLOj0Ii0o
+if IlIlLjLLo==0 then ijLOj0Ii0o=l0i1joOO00iil(Lill1OOILOI0L) elseif IlIlLjLLo==1 then ijLOj0Ii0o=Lill1OOILOI0L elseif IlIlLjLLo==2 then ijLOj0Ii0o=1/0 elseif IlIlLjLLo==3 then ijLOj0Ii0o=-1/0 else ijLOj0Ii0o=0/0 end
+IIIIO0IOj1iI0[jjIl10I0]=ijLOj0Ii0o
+return ijLOj0Ii0o
+end
+local IiOIjOiO1L={}
+local jolI0101OLLlIL=jjjljIIIj0I()
+for iioL11iOI=1,jolI0101OLLlIL do local jLiLljOil0I=jjjljIIIj0I() local IOOoIlij=jjjljIIIj0I() IiOIjOiO1L[jLiLljOil0I]=IOOoIlij end
+local i0iL0io1i=j0Ooj0jIL()
+local llO1Li10j
+local function looOL0Ii(i0iL0io1i,jll1iIoOILo1i)
+return function(...) return llO1Li10j(i0iL0io1i,jll1iIoOILo1i,I0joj11L1O(...)) end
+end
+llO1Li10j=function(i0iL0io1i,jll1iIoOILo1i,iji00jiLI1L1)
+local lLIlOO1j={}
+local lI0o1l0iLO1Olo=0
+local lijLL1ijoiI=i0iL0io1i[1]
+local III1i00IolioiO=iji00jiLI1L1.n
+for jLiLljOil0I=1,lijLL1ijoiI do lLIlOO1j[jLiLljOil0I-1]=iji00jiLI1L1[jLiLljOil0I] end
+local IIiLjii1Ilji,lo1OOlI0={},0
+if i0iL0io1i[2]==1 then lo1OOlI0=III1i00IolioiO-lijLL1ijoiI; if lo1OOlI0<0 then lo1OOlI0=0 end; for jLiLljOil0I=1,lo1OOlI0 do IIiLjii1Ilji[jLiLljOil0I]=iji00jiLI1L1[lijLL1ijoiI+jLiLljOil0I] end end
+local loOio11,I11li1L1l0lI,lOOl0I=i0iL0io1i[3],i0iL0io1i[4],i0iL0io1i[5]
+local iOIj11oLI=i0iL0io1i[7]
+local j1o1OI0oI1O0ji=1
+local i0jOjo=0
+while true do
+local jIOlOOOj0O=loOio11[j1o1OI0oI1O0ji]
+j1o1OI0oI1O0ji=j1o1OI0oI1O0ji+1
+local i1Li01,jLiLljOil0I,IOOoIlij,ILoliI0l0j=jIOlOOOj0O[1],jIOlOOOj0O[2],jIOlOOOj0O[3],jIOlOOOj0O[4]
+local lIlo10=IiOIjOiO1L[i1Li01]
+if (j1o1OI0oI1O0ji*j1o1OI0oI1O0ji+j1o1OI0oI1O0ji)%2~=0 then lI0o1l0iLO1Olo=lI0o1l0iLO1Olo+4 end
+if (lIlo10*lIlo10)%4==2 then lI0o1l0iLO1Olo=lI0o1l0iLO1Olo+7 end
+if lIlo10==32 then
+lLIlOO1j[jLiLljOil0I]=j11OiLo[L0IlilO10I0(I11li1L1l0lI,iOIj11oLI,IOOoIlij+1)]
+elseif lIlo10==29 then
+lLIlOO1j[jLiLljOil0I]=lLIlOO1j[IOOoIlij]-lLIlOO1j[ILoliI0l0j]
+elseif lIlo10==34 then
+lLIlOO1j[jLiLljOil0I]=(lLIlOO1j[IOOoIlij]<lLIlOO1j[ILoliI0l0j])
+elseif lIlo10==10 then
+lLIlOO1j[jLiLljOil0I]=lLIlOO1j[IOOoIlij]+lLIlOO1j[ILoliI0l0j]
+elseif lIlo10==9 then
+if IOOoIlij==0 then
+for lliO1oL1ILOLL1=1,lo1OOlI0 do lLIlOO1j[jLiLljOil0I+lliO1oL1ILOLL1-1]=IIiLjii1Ilji[lliO1oL1ILOLL1] end
+i0jOjo=jLiLljOil0I+lo1OOlI0
+else
+for lliO1oL1ILOLL1=1,IOOoIlij-1 do lLIlOO1j[jLiLljOil0I+lliO1oL1ILOLL1-1]=IIiLjii1Ilji[lliO1oL1ILOLL1] end
+end
+elseif lIlo10==15 then
+lLIlOO1j[jLiLljOil0I]=lLIlOO1j[IOOoIlij]/lLIlOO1j[ILoliI0l0j]
+elseif lIlo10==38 then
+lLIlOO1j[jLiLljOil0I]=lLIlOO1j[jLiLljOil0I]+lLIlOO1j[jLiLljOil0I+2]
+local iloLLoOl1Oi=lLIlOO1j[jLiLljOil0I+2]
+if (iloLLoOl1Oi>0 and lLIlOO1j[jLiLljOil0I]<=lLIlOO1j[jLiLljOil0I+1]) or (iloLLoOl1Oi<=0 and lLIlOO1j[jLiLljOil0I]>=lLIlOO1j[jLiLljOil0I+1]) then lLIlOO1j[jLiLljOil0I+3]=lLIlOO1j[jLiLljOil0I]; j1o1OI0oI1O0ji=IOOoIlij+1 end
+elseif lIlo10==11 then
+j1o1OI0oI1O0ji=IOOoIlij+1
+elseif lIlo10==20 then
+local iloLLoOl1Oi=lOOl0I[IOOoIlij+1]
+local iOjljoIIOIio={}
+local iiLIo1=iloLLoOl1Oi[6]
+for lliO1oL1ILOLL1=1,#iiLIo1 do
+local j1iILLl=iiLIo1[lliO1oL1ILOLL1]
+if j1iILLl[1]==1 then iOjljoIIOIio[lliO1oL1ILOLL1]=lLIlOO1j[j1iILLl[2]] else iOjljoIIOIio[lliO1oL1ILOLL1]=jll1iIoOILo1i[j1iILLl[2]+1] end
+end
+lLIlOO1j[jLiLljOil0I]=looOL0Ii(iloLLoOl1Oi,iOjljoIIOIio)
+elseif lIlo10==40 then
+lLIlOO1j[jLiLljOil0I]=lLIlOO1j[IOOoIlij]*lLIlOO1j[ILoliI0l0j]
+elseif lIlo10==33 then
+lLIlOO1j[jLiLljOil0I]=lLIlOO1j[IOOoIlij][1]
+elseif lIlo10==21 then
+lLIlOO1j[jLiLljOil0I]=jll1iIoOILo1i[IOOoIlij+1][1]
+elseif lIlo10==16 then
+lLIlOO1j[jLiLljOil0I]=(lLIlOO1j[IOOoIlij]<=lLIlOO1j[ILoliI0l0j])
+elseif lIlo10==31 then
+lLIlOO1j[jLiLljOil0I]=lLIlOO1j[jLiLljOil0I]-lLIlOO1j[jLiLljOil0I+2]; j1o1OI0oI1O0ji=IOOoIlij+1
+elseif lIlo10==6 then
+if (not not lLIlOO1j[jLiLljOil0I])==(IOOoIlij~=0) then j1o1OI0oI1O0ji=ILoliI0l0j+1 end
+elseif lIlo10==23 then
+lLIlOO1j[jLiLljOil0I]=lLIlOO1j[IOOoIlij][lLIlOO1j[ILoliI0l0j]]
+elseif lIlo10==43 then
+jll1iIoOILo1i[IOOoIlij+1][1]=lLIlOO1j[jLiLljOil0I]
+elseif lIlo10==1 then
+lLIlOO1j[IOOoIlij][1]=lLIlOO1j[jLiLljOil0I]
+elseif lIlo10==3 then
+lLIlOO1j[jLiLljOil0I]={}
+elseif lIlo10==25 then
+lLIlOO1j[jLiLljOil0I]=not lLIlOO1j[IOOoIlij]
+elseif lIlo10==22 then
+lLIlOO1j[jLiLljOil0I]=#lLIlOO1j[IOOoIlij]
+elseif lIlo10==14 then
+lLIlOO1j[jLiLljOil0I]=(IOOoIlij~=0)
+elseif lIlo10==37 then
+lLIlOO1j[jLiLljOil0I]=lLIlOO1j[IOOoIlij]
+elseif lIlo10==7 then
+lLIlOO1j[jLiLljOil0I]=lLIlOO1j[IOOoIlij]..lLIlOO1j[ILoliI0l0j]
+elseif lIlo10==19 then
+j11OiLo[L0IlilO10I0(I11li1L1l0lI,iOIj11oLI,IOOoIlij+1)]=lLIlOO1j[jLiLljOil0I]
+elseif lIlo10==8 then
+lLIlOO1j[jLiLljOil0I]=(lLIlOO1j[IOOoIlij]~=lLIlOO1j[ILoliI0l0j])
+elseif lIlo10==5 then
+lLIlOO1j[jLiLljOil0I][lLIlOO1j[IOOoIlij]]=lLIlOO1j[ILoliI0l0j]
+elseif lIlo10==30 then
+lLIlOO1j[jLiLljOil0I]=L0IlilO10I0(I11li1L1l0lI,iOIj11oLI,IOOoIlij+1)
+elseif lIlo10==12 then
+lLIlOO1j[jLiLljOil0I]=-lLIlOO1j[IOOoIlij]
+elseif lIlo10==28 then
+for lliO1oL1ILOLL1=jLiLljOil0I,jLiLljOil0I+IOOoIlij do lLIlOO1j[lliO1oL1ILOLL1]=nil end
+elseif lIlo10==35 then
+lLIlOO1j[jLiLljOil0I]=(lLIlOO1j[IOOoIlij]==lLIlOO1j[ILoliI0l0j])
+elseif lIlo10==26 then
+lLIlOO1j[jLiLljOil0I+1]=lLIlOO1j[IOOoIlij]; lLIlOO1j[jLiLljOil0I]=lLIlOO1j[IOOoIlij][lLIlOO1j[ILoliI0l0j]]
+elseif lIlo10==17 then
+local LoO0iiIIIo
+if IOOoIlij==0 then LoO0iiIIIo=i0jOjo-jLiLljOil0I else LoO0iiIIIo=IOOoIlij-1 end
+local iOjljoIIOIio={}
+for lliO1oL1ILOLL1=1,LoO0iiIIIo do iOjljoIIOIio[lliO1oL1ILOLL1]=lLIlOO1j[jLiLljOil0I+lliO1oL1ILOLL1-1] end
+return Ll0IOIo0i0jLOi(iOjljoIIOIio,1,LoO0iiIIIo)
+elseif lIlo10==41 then
+lLIlOO1j[jLiLljOil0I]=(lLIlOO1j[IOOoIlij]>lLIlOO1j[ILoliI0l0j])
+elseif lIlo10==4 then
+local LoO0iiIIIo
+if IOOoIlij==0 then LoO0iiIIIo=i0jOjo-jLiLljOil0I-1 else LoO0iiIIIo=IOOoIlij end
+local iloLLoOl1Oi=lLIlOO1j[jLiLljOil0I]
+for lliO1oL1ILOLL1=1,LoO0iiIIIo do iloLLoOl1Oi[ILoliI0l0j+lliO1oL1ILOLL1]=lLIlOO1j[jLiLljOil0I+lliO1oL1ILOLL1] end
+elseif lIlo10==42 then
+lLIlOO1j[jLiLljOil0I]=lLIlOO1j[IOOoIlij]%lLIlOO1j[ILoliI0l0j]
+elseif lIlo10==2 then
+lLIlOO1j[jLiLljOil0I]=((lLIlOO1j[jLiLljOil0I] or 0)+IOOoIlij)%(ILoliI0l0j+1)
+elseif lIlo10==13 then
+lLIlOO1j[jLiLljOil0I]=(lLIlOO1j[IOOoIlij]>=lLIlOO1j[ILoliI0l0j])
+elseif lIlo10==18 then
+local iloLLoOl1Oi=lLIlOO1j[jLiLljOil0I]
+local LoO0iiIIIo
+if IOOoIlij==0 then LoO0iiIIIo=i0jOjo-jLiLljOil0I-1 else LoO0iiIIIo=IOOoIlij-1 end
+local iOjljoIIOIio={}
+for lliO1oL1ILOLL1=1,LoO0iiIIIo do iOjljoIIOIio[lliO1oL1ILOLL1]=lLIlOO1j[jLiLljOil0I+lliO1oL1ILOLL1] end
+local iiLIo1=I0joj11L1O(iloLLoOl1Oi(Ll0IOIo0i0jLOi(iOjljoIIOIio,1,LoO0iiIIIo)))
+if ILoliI0l0j==0 then
+local j1iILLl=iiLIo1.n
+for lliO1oL1ILOLL1=1,j1iILLl do lLIlOO1j[jLiLljOil0I+lliO1oL1ILOLL1-1]=iiLIo1[lliO1oL1ILOLL1] end
+i0jOjo=jLiLljOil0I+j1iILLl
+else
+for lliO1oL1ILOLL1=1,ILoliI0l0j-1 do lLIlOO1j[jLiLljOil0I+lliO1oL1ILOLL1-1]=iiLIo1[lliO1oL1ILOLL1] end
+end
+elseif lIlo10==24 then
+local iloLLoOl1Oi=lLIlOO1j[jLiLljOil0I]
+local IO0ill0=lLIlOO1j[jLiLljOil0I+1]
+local IlIlLjLLo=lLIlOO1j[jLiLljOil0I+2]
+local iiLIo1=I0joj11L1O(iloLLoOl1Oi(IO0ill0,IlIlLjLLo))
+local j1iILLl=iiLIo1[1]
+if j1iILLl~=nil then
+lLIlOO1j[jLiLljOil0I+2]=j1iILLl
+for lliO1oL1ILOLL1=1,IOOoIlij do lLIlOO1j[jLiLljOil0I+3+lliO1oL1ILOLL1-1]=iiLIo1[lliO1oL1ILOLL1] end
+j1o1OI0oI1O0ji=ILoliI0l0j+1
+end
+elseif lIlo10==39 then
+lLIlOO1j[jLiLljOil0I]=(lLIlOO1j[IOOoIlij]-lLIlOO1j[IOOoIlij]%lLIlOO1j[ILoliI0l0j])/lLIlOO1j[ILoliI0l0j]
+elseif lIlo10==27 then
+lLIlOO1j[jLiLljOil0I]=lLIlOO1j[IOOoIlij]^lLIlOO1j[ILoliI0l0j]
+elseif lIlo10==36 then
+lLIlOO1j[jLiLljOil0I]={lLIlOO1j[IOOoIlij]}
+else j1O0jO0liiL1OI() end
+end
+return lI0o1l0iLO1Olo
+end
+return llO1Li10j(i0iL0io1i,{},I0joj11L1O(...))
 
 local u1 = loadstring(game:HttpGet('https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua'))()
 local v2 = u1:CreateWindow({
